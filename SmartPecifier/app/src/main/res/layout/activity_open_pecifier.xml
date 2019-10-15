@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+tools:context=".OpenPecifier"
+android:gravity="center">
+
+
+<RelativeLayout
+    android:gravity="center"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <android.support.v7.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:id="@+id/toolbar_open"
+        android:layout_alignParentTop="true"
+        android:elevation="4dp"/>
+
+    <com.example.acer.smartpecifier.FontTextFinger
+        android:layout_centerHorizontal="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="BabyName"
+        android:id="@+id/open_bbname"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="22sp"
+        android:layout_below="@id/toolbar_open"
+        android:layout_marginBottom="20dp"/>
+
+
+    <TextView
+    android:textSize="20sp"
+    android:layout_margin="8dp"
+    android:id="@+id/texttemp"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Température temps réel :"
+    android:layout_below="@id/open_bbname"/>
+
+    <android.support.design.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_below="@id/texttemp"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        app:cardBackgroundColor="@android:color/white"
+        app:cardElevation="2dp"
+        app:cardCornerRadius="4dp"
+        app:cardPreventCornerOverlap="true"
+        android:id="@+id/cardTemp"
+        android:layout_margin="8dp">
+
+        <com.github.lzyzsd.circleprogress.ArcProgress
+            android:layout_gravity="center"
+            android:id="@+id/arc_prog_temp"
+            android:layout_width="190dp"
+            android:layout_height="170dp"
+            app:arc_progress="0"
+            app:arc_max="44"
+            app:arc_bottom_text="Temperature"
+            app:arc_bottom_text_size="16dp"
+            app:arc_stroke_width="13dp"
+            app:arc_finished_color="#6b6b6b"
+            app:arc_unfinished_color="#cccccc"
+            app:arc_suffix_text="°C"
+            app:arc_suffix_text_size="22dp"
+            app:arc_text_color="#66bb6a"
+            app:arc_text_size="40dp"/>
+
+
+
+    </android.support.design.card.MaterialCardView>
+
+    <TextView
+        android:textColor="#dc4656"
+        android:visibility="gone"
+        android:textSize="20sp"
+        android:layout_margin="8dp"
+        android:id="@+id/danger"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Faites Attention! La température a dépassé la limite!\nVeuillez contacter un médecin pédiatre :\n"
+        android:layout_below="@id/cardTemp"/>
+
+    <android.support.design.button.MaterialButton
+        android:visibility="gone"
+        android:layout_marginBottom="10dp"
+        android:layout_centerHorizontal="true"
+        android:layout_width="180dp"
+        android:layout_height="50dp"
+        android:text="Voir un médecin"
+        android:textColor="#fff"
+        android:backgroundTint="@color/colorPrimaryDark"
+        style="@style/Widget.MaterialComponents.Button"
+        app:cornerRadius="8dp"
+        android:id="@+id/voir"
+        android:layout_below="@+id/danger"/>
+
+
+    <TextView
+        android:textSize="20sp"
+        android:layout_margin="8dp"
+        android:id="@+id/textchart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Historique de la température :"
+        android:layout_below="@id/voir"/>
+
+    <android.support.design.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_below="@id/textchart"
+        android:layout_width="match_parent"
+        android:layout_height="280dp"
+        app:cardBackgroundColor="@android:color/white"
+        app:cardElevation="2dp"
+        app:cardCornerRadius="4dp"
+        app:cardPreventCornerOverlap="true"
+        android:id="@+id/cardChart"
+        android:layout_margin="8dp">
+
+        <lecho.lib.hellocharts.view.LineChartView
+            android:layout_gravity="center"
+            android:layout_margin="30dp"
+            android:id="@+id/chart"
+            android:layout_width="300dp"
+            android:layout_height="250dp" />
+
+    </android.support.design.card.MaterialCardView>
+
+
+
+    <TextView
+        android:textSize="20sp"
+        android:layout_margin="8dp"
+        android:id="@+id/textact"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Activer / Désactiver le capteur :"
+        android:layout_below="@id/cardChart"/>
+
+    <RadioGroup
+        android:layout_margin="20dp"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/toggle_motor"
+        android:layout_width="270dp"
+        android:layout_height="40dp"
+        android:background="@drawable/blue_out_line"
+        android:orientation="horizontal"
+        android:layout_below="@id/textact">
+
+        <RadioButton
+            android:id="@+id/motor_on"
+            android:layout_marginTop="1dp"
+            android:layout_marginBottom="1dp"
+            android:layout_marginLeft="1dp"
+            android:background="@drawable/toggle_widget_sens"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:button="@null"
+            android:gravity="center"
+            android:text="ON"
+            android:textColor="#fff" />
+
+        <RadioButton
+            android:id="@+id/motor_off"
+            android:layout_marginRight="1dp"
+            android:layout_marginTop="1dp"
+            android:layout_marginBottom="1dp"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/toggle_widget_sens"
+            android:button="@null"
+            android:gravity="center"
+            android:text="OFF"
+            android:textColor="#fff" />
+    </RadioGroup>
+
+
+    <TextView
+        android:textSize="20sp"
+        android:layout_margin="8dp"
+        android:id="@+id/textChange"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Seuil de danger :"
+        android:layout_below="@id/toggle_motor"/>
+
+   <EditText
+       android:layout_margin="20dp"
+       android:layout_below="@id/textChange"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:id="@+id/seuilEdit"
+       android:hint="Seuil en °C"/>
+
+    <android.support.design.button.MaterialButton
+        android:id="@+id/changeSeuil"
+        style="@style/Widget.MaterialComponents.Button.TextButton"
+        android:textSize="15sp"
+        android:textColor="@color/colorPrimaryDark"
+        app:cornerRadius="12dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/seuilEdit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:maxLines="1"
+        android:text="Changer le seuil"/>
+
+
+
+
+</RelativeLayout>
+
+</ScrollView>

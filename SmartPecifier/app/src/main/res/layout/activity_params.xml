@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ParamsActivity">
+
+
+    <TextView
+        android:textSize="20sp"
+        android:layout_margin="8dp"
+        android:id="@+id/textnum"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Numéro du médecin pédiatre :"
+       />
+
+
+    <EditText
+        android:drawableLeft="@mipmap/ic_phone"
+        android:layout_margin="20dp"
+        android:layout_below="@id/textnum"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/numEdit"
+        android:hint="Numéro de médecin"
+        android:inputType="phone"/>
+
+    <android.support.design.button.MaterialButton
+        android:layout_marginBottom="10dp"
+        android:layout_centerHorizontal="true"
+        android:layout_width="180dp"
+        android:layout_height="50dp"
+        android:text="Changer"
+        android:textColor="#fff"
+        android:backgroundTint="@color/colorPrimaryDark"
+        style="@style/Widget.MaterialComponents.Button"
+        app:cornerRadius="8dp"
+        android:id="@+id/changer"
+        android:layout_below="@+id/numEdit"/>
+
+</RelativeLayout>
